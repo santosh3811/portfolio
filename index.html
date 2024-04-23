@@ -1,0 +1,193 @@
+<!DOCTYPE html >
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>personal portfolio website</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a4eca5c5f2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <nav>
+            <img src="logo.jpg" class="logo">
+            <ul id="sidemenu">
+                <li><a href="#header"><b>Home</b></a></li>
+                <li><a href="#about"><b>about</b></a></li>
+                <li><a href="#services"><b>Services</b></a></li>
+                <li><a href="#portfolio"><b>Portfolio</b></a></li>
+                <li><a href="#contact"><b>Contact</b></a></li>
+                <i class="fa-solid fa-square-xmark" onclick="closemenu()"></i>
+            </ul>
+            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+        </nav>
+        <div class="header-text">
+            <p>student</p>
+            <h1>hi,i'm <br><span>Santosh karini</span><br> from Andhra pradesh</h1>
+        </div>
+    </div>
+</div>
+<div id="about">
+    <div class="container">
+      <div class="row">
+        <div class="about-col-1">
+        <img src="IMG_3221.jpeg">
+        </div>
+        <div class="about-col-2">
+        <h1 class="sub-title">About Me</h1>
+        <p>My name is Santosh karini. I'm a student at Vellore institute of Technology at 
+            Vellore with a degree in Computer Engineering. I'm most passionate about giving back to the community, 
+            and my goal is to pursue this passion within the field of software engineering. In my free time I like 
+            working on open source projects.</p>
+        <div class="tab-titles">
+            <p class="tab-links active-link" onclick="opentab('skills')">skills</p>
+            <p class="tab-links" onclick="opentab('Experience')">Experience</p>
+            <p class="tab-links" onclick="opentab('Education')">Education</p>
+        </div>
+        <div class="tab-contents active-tab" id="skills">
+        <ul>
+            <li><span>UI?UX</span><br>designing web/app inter</li>
+            <li><span>Web develovper</span><br>web app develovper</li>
+            <li><span>app develovper</span><br>Building android/ios apps</li>
+        </ul>
+        </div>
+    <div class="tab-contents" id="Experience">
+    <ul>
+        <li><span>2021-current</span><br>UT/UX design traning at ET institute</li>
+        <li><span>2019-2021</span><br>eam lead at starapp LLC.</li>
+        <li><span>2017-2019</span><br>UT/UX design executive at coin digital ltd.</li>
+        <li><span>2016-2017</span><br>internship at ekart  eCommerce.</li>
+    </ul>
+    </div>
+    <div class="tab-contents" id="Education">
+<ul>
+    <li><span>2026</span><br>b.tech from Vellore institute of technology(vellore)</li>
+    <li><span>2022</span><br>jr.collage from Sasi educational institute(velivennu,W.Godavari dt) </li>
+    <li><span>2020</span><br>schooling from Sasi english medium school(velivennu,W.Godavari dt)</li>
+</ul>
+         </div>
+       </div>
+     </div>
+   </div>
+
+
+   <div id="services">
+       <div class="container">
+        <h1 class="sub-title">My services</h1>
+        <div class="services-list">
+            <div>
+                <h2>web design</h2>
+                <p> write some thing</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div>
+                <h2>IU/UX DESIGN</h2>
+                <p> write some thing</p>
+                <a href="#">Learn more</a>
+            </div>
+            <div>
+                <h2>APP design</h2>
+                <p> write some thing</p>
+                <a href="#">Learn more</a>
+            </div>
+
+        </div> 
+       </div>
+   </div>
+</div>
+
+
+<div id="portfolio">
+    <div class="container">
+     <h1 class="sub-title">My Work</h1>
+     <div class="work-list">
+        <div class="work">
+            <img src="mpmc.png"> 
+            <div class="layer">
+            <h3>Micro class trainer airplane</h3>
+            <p>This modal plane helps the people to understand the impostance  microprocessers and microcontrollers.</p>
+            <a href="proj.pdf"><i class="fa-solid fa-up-right-from-square"></i></a>
+           </div>  
+        </div>
+        <div class="work">
+            <img src="mpmc.png">
+            <div class="layer">
+                <h3>Micro class trainer airplane-1</h3>
+                <p>This modal plane helps the people to understand the impostance  microprocessers and microcontrollers.</p>
+                <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>            
+            </div>
+        </div>
+        <div class="work">
+            <img src="mpmc.png">
+            <div class="layer">
+                <h3>Micro class trainer airplane-2</h3>
+                <p>This modal plane helps the people to understand the impostance  microprocessers and microcontrollers.</p>
+                <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>            
+            </div>
+        </div>
+    </div>
+    <a href="#" class="btn">See more</a>
+</div> 
+</div>
+
+
+
+<div id="contact">                                       
+    <div class="container">
+    <div class="row">
+        <div class="contact-left">
+            <h1 class="sub-title">contact me</h1>
+            <p><i class="fa-solid fa-paper-plane"></i><h3 style="color:black;">karini.siddu2022@vitstudent.ac.in</h3></p>
+            <p><i class="fa-solid fa-phone"></i><h3 style="color:black;">8760349999</h3></p>
+            <div class="social-icons">
+                <a href="https://facebook.com/"><i class="fab fa-facebook"></i> </a>
+                <a href="https://twitter.com/"><i class="fab fa-twitter-square"></i> </a>
+                <a href="https://www.instagram.com/_santosh_2405?igsh=MXg2azQ1MnJkeGx5OQ%3D%3D&utm_source=qr"><i class="fab fa-instagram"></i> </a>
+                <a href="https://www.linkedin.com/in/karini-santosh-332728270?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <a href="resume_compressed.pdf" download class="btn btn2">Download Resume</a>
+        </div>
+        <div class="contact-right">
+            <form>
+                <input type="text" name="Name" placeholder="your name" required>
+                <input type="email" name="email" placeholder="your email" required>
+                <textarea name="message" rows="6" placeholder="your message"></textarea>
+                <button type="submit" class="btn btn2">Submit</button>
+
+            </form>
+        </div>
+    </div>
+    </div>
+    <div class="copyright">
+        <p>copyright santosh karini.</p>
+    </div>
+</div>
+<script>
+    var tablinks=document.getElementsByClassName("tab-links");
+    var tabcontents=document.getElementsByClassName("tab-contents");
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+</script>
+
+<script>
+var sidemeu = document.getElementById("sidemenu");
+function openmenu(){
+sidemeu. style.right = "0";
+}
+function closemenu(){
+sidemeu.style.right = "-200px";
+}
+</script>
+
+</body> 
+</html>

@@ -170,7 +170,7 @@ nav ul li a:hover::after{
 }
 .services-list div:hover{
     background: #ff004f;
-    transform: translate(-10px);
+    transform: translateY(-10px);
 }
 
 /*---portfolio----*/
@@ -280,7 +280,7 @@ nav ul li a:hover::after{
 }
 .btn.btn2{
     display:inline-block;
-    background: #ff004f;
+    background: #ff002f;
 }
 .contact-right form{
     width: 100%;
@@ -367,3 +367,7 @@ nav .fa-solid{
         font-size: 14px;
         }
 }     
+
+
+
+ 

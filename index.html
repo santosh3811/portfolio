@@ -1,207 +1,1003 @@
-<!DOCTYPE html >
-<html lang="en" >
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>personal portfolio website</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a4eca5c5f2.js" crossorigin="anonymous"></script>
+    <meta name="description" content="Professional portfolio of Santosh Karini, Computer Science Engineering student">
+    <meta name="keywords" content="portfolio, web developer, computer engineering, Santosh Karini">
+    <title>Santosh Karini | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff004f;
+            --secondary-color: #262626;
+            --light-color: #ffffff;
+            --dark-color: #111111;
+            --gray-color: #f5f5f5;
+            --text-color: #333333;
+            --bg-color: #f9f9f9;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        button {
+            --primary-color: #ff004f;
+            --secondary-color: #fff;
+            --hover-color: #111;
+            --arrow-width: 10px;
+            --arrow-stroke: 2px;
+            box-sizing: border-box;
+            border: 0;
+            border-radius: 15px;
+            color: var(--secondary-color);
+            padding: 1em 1.8em;
+            background: var(--primary-color);
+            display: flex;
+            transition: 0.2s background;
+            align-items: center;
+            gap: 0.1em;
+            cursor: pointer;
+        }
+
+        button .arrow-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button .arrow {
+            margin-top: 1px;
+            width: var(--arrow-width);
+            background: var(--primary-color);
+            height: var(--arrow-stroke);
+            position: relative;
+            transition: 0.2s;
+        }
+
+        button .arrow::before {
+            content: "";
+            box-sizing: border-box;
+            position: absolute;
+            border: solid var(--secondary-color);
+            border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+            display: inline-block;
+            top: -3px;
+            right: 3px;
+            transition: 0.2s;
+            padding: 3px;
+            transform: rotate(-45deg);
+        }
+
+        button:hover {
+            background-color: var(--hover-color);
+        }
+
+        button:hover .arrow {
+            background: var(--secondary-color);
+        }
+
+        button:hover .arrow:before {
+            right: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--primary-color);
+            color: var(--light-color);
+            border: 1px solid var(--primary-color);
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--primary-color);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: var(--light-color);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        #header {
+            width: 100%;
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://res.cloudinary.com/duceao3wn/image/upload/v1751211626/logo_hisfby.jpg') no-repeat center/cover;
+            color: var(--light-color);
+            position: relative;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
+            transition: var(--transition);
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            padding: 15px 5%;
+            margin: 0 auto;
+        }
+
+        nav.scrolled {
+            background: var(--dark-color);
+            padding: 15px 5%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            width: 140px;
+            margin-left: 20px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 10px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: var(--light-color);
+            font-size: 18px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        nav ul li a::after {
+            content: '';
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 25px;
+            cursor: pointer;
+            color: white;
+            margin-right: 20px;
+        }
+
+        .header-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .header-text .role {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--light-color);
+        }
+
+        .header-text h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .header-text h1 span {
+            color: var(--primary-color);
+        }
+
+        .social-icons {
+            margin-top: 30px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 10px;
+            color: gray;
+            font-size: 20px;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* About Section */
+        #about {
+            padding: 80px 0;
+            color: black;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .about-col-1 {
+            flex-basis: 35%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .about-col-1:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-col-1 img {
+            width: 100%;
+            border-radius: 15px;
+            transition: none;
+        }
+
+        .about-col-2 {
+            flex-basis: 60%;
+        }
+
+        .sub-title {
+            font-size: 60px;
+            font-weight: 600;
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        .tab-titles {
+            display: flex;
+            margin: 20px 0 40px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .tab-contents ul li {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .tab-contents ul li span {
+            color: #b54769;
+            font-size: 14px;
+        }
+
+        .tab-contents {
+            display: none;
+        }
+
+        .tab-contents.active-tab {
+            display: block;
+        }
+
+        /* Services Section */
+        #services {
+            padding: 80px 0;
+            background: var(--gray-color);
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .services-list article {
+            background: var(--light-color);
+            padding: 40px;
+            border-radius: 10px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .services-list article:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .services-list article i {
+            font-size: 50px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .services-list article h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .services-list article p {
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .learn-more {
+            color: var(--primary-color);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .learn-more i {
+            margin-left: 5px;
+            font-size: 12px;
+        }
+
+        .learn-more:hover {
+            text-decoration: underline;
+        }
+
+        /* Projects Section */
+        #Projects {
+            padding: 80px 0;
+            background: var(--light-color);
+            text-align: center;
+        }
+
+        .work-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .work {
+            background: var(--light-color);
+            padding: 25px;
+            border-radius: 10px;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: left;
+        }
+
+        .work img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .work h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: var(--secondary-color);
+        }
+
+        .work p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            font-size: 15px;
+        }
+
+        .work:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 80px 0;
+            background: var(--gray-color);
+        }
+
+        .contact-row {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .contact-left {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 10px;
+        }
+
+        .contact-right {
+            flex: 1;
+            min-width: 300px;
+            padding-left: 10px;
+        }
+
+        .contact-left p {
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-left p i {
+            color: var(--primary-color);
+            margin-right: 15px;
+            font-size: 25px;
+        }
+
+        .contact-right form {
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #f3f0f0;
+            border-radius: 6px;
+            outline: none;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        #form-message {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+
+        #form-message.success {
+            background: #d4edda;
+            color: #155724;
+            display: block;
+        }
+
+        #form-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+
+        /* Footer */
+        .copyright {
+            background: var(--dark-color);
+            color: var(--light-color);
+            text-align: center;
+            padding: 25px 0;
+        }
+
+        #year {
+            font-weight: 600;
+        }
+
+        /* Mobile Menu */
+        #sidemenu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 250px;
+            height: 100vh;
+            background: var(--primary-color);
+            padding-top: 80px;
+            z-index: 100;
+            transition: right 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #sidemenu.active {
+            right: 0;
+        }
+
+        #sidemenu li {
+            margin: 20px 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        #sidemenu li a {
+            color: white;
+            font-size: 18px;
+            padding: 10px 0;
+            display: block;
+        }
+
+        #sidemenu .fa-times {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 25px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 99;
+            display: none;
+        }
+
+        .menu-overlay.active {
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media only screen and (max-width: 1024px) {
+            .header-text h1 {
+                font-size: 50px;
+            }
+            
+            .sub-title {
+                font-size: 50px;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .menu-btn {
+                display: block;
+                z-index: 101;
+            }
+            
+            nav ul.desktop-menu {
+                display: none;
+            }
+            
+            .header-text h1 {
+                font-size: 40px;
+            }
+            
+            .sub-title {
+                font-size: 40px;
+            }
+            
+            .about-col-1, .about-col-2 {
+                flex-basis: 100%;
+            }
+            
+            .about-col-1 {
+                margin-bottom: 30px;
+            }
+            
+            .logo {
+                margin-left: 0;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .header-text h1 {
+                font-size: 32px;
+            }
+            
+            .header-text .role {
+                font-size: 18px;
+            }
+            
+            .sub-title {
+                font-size: 32px;
+            }
+            
+            .contact-left, .contact-right {
+                padding: 0;
+            }
+            
+            .contact-row {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .services-list, .work-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .tab-titles {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-<div id="header">
-    <div class="container">
-        <nav>
-            <img src="logo.jpg" class="logo">
-            <ul id="sidemenu">
-                <li><a href="#header"><b>Home</b></a></li>
-                <li><a href="#about"><b>about</b></a></li>
-                <li><a href="#services"><b>Services</b></a></li>
-                <li><a href="#portfolio"><b>Portfolio</b></a></li>
-                <li><a href="#contact"><b>Contact</b></a></li>
-                <i class="fa-solid fa-square-xmark" onclick="closemenu()"></i>
-            </ul>
-            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
-        </nav>
-        <div class="header-text">
-            <p><h3 style="color:white;">student</h3></p>
-            <h1>hi,i'm <br><span>Santosh karini</span><br> from Andhra pradesh</h1>
-
-            <div class="social-icons">
-                <a href="https://facebook.com/"><i class="fab fa-facebook"></i> </a>
-                <a href="https://twitter.com/"><i class="fab fa-twitter-square"></i> </a>
-                <a href="https://www.instagram.com/_santosh_2405?igsh=MXg2azQ1MnJkeGx5OQ%3D%3D&utm_source=qr"><i class="fab fa-instagram"></i> </a>
-                <a href="https://www.linkedin.com/in/karini-santosh-332728270/"><i class="fa-brands fa-linkedin"></i></a>
-            </div>
-            
-
-
-        </div>
-    </div>
-</div>
-<div id="about">
-    <div class="container">
-      <div class="row">
-        <div class="about-col-1">
-        <img src="https://res.cloudinary.com/duceao3wn/image/upload/v1739276011/IMG_4759_sowuna.jpg">
-        </div>
-        <div class="about-col-2">
-        <h1 class="sub-title">About Me</h1>
-        <p>My name is Santosh karini. I'm a student at Vellore institute of Technology at 
-            Vellore with a degree in Computer Engineering. I'm most passionate about giving back to the community, 
-            and my goal is to pursue this passion within the field of software engineering. In my free time I like 
-            working on open source projects.</p>
-        <div class="tab-titles">
-            <h3><p class="tab-links active-link" onclick="opentab('Skills')">Skills</p></h3>
-            <p class="tab-links" onclick="opentab('Experience')">Experience</p>
-            <p class="tab-links" onclick="opentab('Education')">Education</p>
-        </div>
-        <div class="tab-contents active-tab" id="Skills">
-        <ul>
-            <li><span></span><br> Data Structures and algorithms</li>
-            <li><span></span><br>Java Programming</li>
-            <li><span></span><br>Database Management</li>
-            <li><span></span><br>HTML</li>
-            <li><span></span><br>CSS</li>
-            <li><span></span><br>Team Collaboration</li>
-        </ul>
-        </div>
-    <div class="tab-contents" id="Experience">
-    <ul>
-        <li><span>2022</span><br>Microsoft - Etrain India Online certification </li>
-    </ul>
-    </div>
-    <div class="tab-contents" id="Education">
-<ul>
-    <li><span>2022 - present</span><br>B.tech from Vellore institute of technology(vellore)</li>
-    <li><span>2022</span><br>jr.collage from Sasi educational institute(velivennu,W.Godavari dt,Andhra pradesh) </li>
-    <li><span>2020</span><br>schooling from Sasi english medium school(velivennu,W.Godavari dt,Andhra pradesh)</li>
-</ul>
-         </div>
-       </div>
-     </div>
-   </div>
-
-
-   <div id="services">
-       <div class="container">
-        <h1 class="sub-title">My services</h1>
-        <div class="services-list">
-            <div>
-                <h2>web design</h2>
-                <p>portfolio.</p>
-                <a href="https://santosh3811.github.io/portfolio/">Learn more</a>
-            </div>
-            <div>
-                <h2>IU/UX DESIGN</h2>
-                <p>-NA-</p>
-                <a href="#">Learn more</a>
-            </div>
-            <div>
-                <h2>APP design</h2>
-                <p>-NA-</p>
-                <a href="#">Learn more</a>
-            </div>
-
-        </div> 
-       </div>
-   </div>
-</div>
-
-
-<div id="portfolio">
-    <div class="container">
-     <h1 class="sub-title">My Work</h1>
-     <div class="work-list">
-        <div class="work">
-            <img src="mpmc.png"> 
-            <div class="layer">
-            <h3>Micro class trainer airplane</h3>
-            <p>This modal plane helps the people to understand the impostance  microprocessers and microcontrollers.</p>
-            <a href="proj.pdf"><i class="fa-solid fa-up-right-from-square"></i></a>
-           </div>  
-        </div>
-        <div class="work">
-            <img src="mpmc.png">
-            <div class="layer">
-                <h3>Micro class trainer airplane-1</h3>
-                <p>This modal plane helps the people to understand the impostance  microprocessers and microcontrollers.</p>
-                <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>            
+    <header id="header">
+        <div class="nav-content">
+            <nav>
+                <img src="https://res.cloudinary.com/duceao3wn/image/upload/v1751211626/logo_hisfby.jpg" alt="Portfolio Logo" class="logo">
+                <ul class="desktop-menu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#Projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <i class="fas fa-bars menu-btn" id="menuBtn" aria-label="Open menu"></i>
+            </nav>
+            <div class="header-text">
+                <p class="role">Computer Science Engineering Student</p>
+                <h1>Hi, I'm <span>Santosh Karini</span><br>from Andhra Pradesh</h1>
+                <div class="social-icons">
+                    <a href="https://facebook.com/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com/" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/_santosh_2405" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/karini-santosh-332728270/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/santosh3811" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
             </div>
         </div>
-        <div class="work">
-            <img src="mpmc.png">
-            <div class="layer">
-                <h3>Micro class trainer airplane-2</h3>
-                <p>This modal plane helps the people to understand the impostance  microprocessers and microcontrollers.</p>
-                <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>            
-            </div>
-        </div>
-    </div>
-    <h3><a href="#" class="btn">See more</a></h3>
-</div> 
-</div>
-
-
-
-
-<div id="contact">                                       
-    <div class="container">
-    <div class="row">
-        <div class="contact-left">
-            <h1 class="sub-title">contact me</h1>
-            <p><i class="fa-solid fa-paper-plane"></i><h3 style="color:black;">karini.siddu2022@vitstudent.ac.in</h3></p>
-            <p><i class="fa-solid fa-phone"></i><h3 style="color:black;">8760349999</h3></p>
-            <div class="social-icons">
-                <a href="https://facebook.com/"><i class="fab fa-facebook"></i> </a>
-                <a href="https://twitter.com/"><i class="fab fa-twitter-square"></i> </a>
-                <a href="https://www.instagram.com/_santosh_2405?igsh=MXg2azQ1MnJkeGx5OQ%3D%3D&utm_source=qr"><i class="fab fa-instagram"></i> </a>
-                <a href="https://www.linkedin.com/in/karini-santosh-332728270/"><i class="fa-brands fa-linkedin"></i></a>
-            </div>
-            <h3><a href="resume_new2.pdf" download class="btn btn2">Download Resume</a></h3>
-        </div>
-        <div class="contact-right">
-            <form>
-                <input type="text" name="Name" placeholder="your name" required>
-                <input type="email" name="email" placeholder="your email" required>
-                <textarea name="message" rows="6" placeholder="your message"></textarea>
-                <h1><button type="submit" class="btn btn2">Submit</button></h1>
-
-            </form>
-        </div>
-    </div>
-    </div>
-    <div class="copyright">
         
-        <footer>
-            <p> 2024 &copy; Santosh Karini</p>
-        </footer>
-    </div>
-</div>
-<script>
-    var tablinks=document.getElementsByClassName("tab-links");
-    var tabcontents=document.getElementsByClassName("tab-contents");
-    function opentab(tabname){
-        for(tablink of tablinks){
-            tablink.classList.remove("active-link");
-        }
-        for(tabcontent of tabcontents){
-            tabcontent.classList.remove("active-tab");
-        }
-        event.currentTarget.classList.add("active-link");
-        document.getElementById(tabname).classList.add("active-tab");
-    }
-</script>
+        <!-- Mobile Menu -->
+        <div class="menu-overlay" id="menuOverlay"></div>
+        <ul id="sidemenu">
+            <li><a href="#header">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#Projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <i class="fas fa-times" id="closeMenu" aria-label="Close menu"></i>
+        </ul>
+    </header>
 
-<script>
-var sidemeu = document.getElementById("sidemenu");
-function openmenu(){
-sidemeu. style.right = "0";
-}
-function closemenu(){
-sidemeu.style.right = "-200px";
-}
-</script>
+    <main>
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="about-col-1">
+                        <img src="https://res.cloudinary.com/duceao3wn/image/upload/v1751215226/WhatsApp_Image_2025-06-29_at_22.09.40_v0yj0q.jpg" alt="Santosh Karini profile picture">
+                    </div>
+                    <div class="about-col-2">
+                        <h2 class="sub-title">About Me</h2>
+                        <p>I'm a Computer Engineering student at Vellore Institute of Technology with a passion for software development and open-source contributions. My goal is to leverage my technical skills to create impactful solutions while continuously learning and growing in the field of technology.</p>
+                        
+                        <div class="tab-titles">
+                            <button class="tab-links arrow-wrapper" data-tab="skills">Skills<div class="arrow"></div></button>
+                            <button class="tab-links arrow-wrapper" data-tab="Certifications">Certifications<div class="arrow"></div></button>
+                            <button class="tab-links arrow-wrapper" data-tab="education">Education<div class="arrow"></div></button>
+                        </div>
+                        
+                        <div class="tab-contents active-tab" id="skills">
+                            <ul>
+                                <li><strong>Programming:</strong> Java, Python, JavaScript</li>
+                                <li><strong>Web Development:</strong> HTML5, CSS3, JavaScript</li>
+                                <li><strong>Database:</strong> SQL, MongoDB</li>
+                                <li><strong>Tools:</strong> Git, VS Code, IntelliJ</li>
+                                <li><strong>Soft Skills:</strong> Problem Solving, Team Collaboration</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="tab-contents" id="Certifications">
+                            <ul>
+                                <li>
+                                    <span>2022</span>
+                                    <strong>Microsoft - Etrain India</strong>
+                                    <p>Online certification program covering fundamental programming concepts</p>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="tab-contents" id="education">
+                            <ul>
+                                <li>
+                                    <span>2025 - Present</span>
+                                    <strong>B.Tech in Computer Engineering</strong>
+                                    <p>Vellore Institute of Technology, Vellore</p>
+                                </li>
+                                <li>
+                                    <span>2022</span>
+                                    <strong>Higher Secondary Education</strong>
+                                    <p>Sasi Educational Institute, West Godavari, Andhra Pradesh</p>
+                                </li>
+                                <li>
+                                    <span>2020</span>
+                                    <strong>Secondary Education</strong>
+                                    <p>Sasi English Medium School, West Godavari, Andhra Pradesh</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-</body> 
+        <section id="services">
+            <div class="container">
+                <h2 class="sub-title">My Services</h2>
+                <div class="services-list">
+                    <article>
+                        <i class="fas fa-code"></i>
+                        <h3>Web Development</h3>
+                        <p>Custom website development tailored to your needs, including responsive design and modern frameworks.</p>
+                        <a href="https://santosh3811.github.io/portfolio/" class="learn-more">View Portfolio</a>
+                    </article>
+                    <article>
+                        <i class="fas fa-crop-alt"></i>
+                        <h3>UI/UX Design</h3>
+                        <p>User-centered design approach creating intuitive and engaging digital experiences.</p>
+                        <a href="#" class="learn-more">Coming Soon</a>
+                    </article>
+                    <article>
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>App Design</h3>
+                        <p>Mobile application design with focus on usability and platform-specific guidelines.</p>
+                        <a href="#" class="learn-more">Coming Soon</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="Projects">
+            <div class="container">
+                <h2 class="sub-title">My Projects</h2>
+                <div class="work-list">
+                    <div class="work">
+                        <img src="https://res.cloudinary.com/duceao3wn/image/upload/v1751261965/WhatsApp_Image_2025-06-30_at_11.07.05_iiezso.jpg" alt="Online fraud detection using machine-learning">
+                        <div class="layer">
+                            <h3>Online fraud detection using machine-learning</h3>
+                            <p>project-link</p>
+                            <a href="https://github.com/santosh3811/online-payments-fraud-detection-using-machine-learning" target="_blank" aria-label="View project details"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <img src="https://res.cloudinary.com/duceao3wn/image/upload/v1751387166/Screenshot_2025-07-01_at_9.55.48_PM_pisbs2.png" alt="Portfolio Website">
+                        <div class="layer">
+                            <h3>Personal Portfolio</h3>
+                            <p>Responsive personal portfolio website showcasing my skills and projects.</p>
+                            <p>website-link</p>
+                            <a href="https://santosh3811.github.io/portfolio/#header" target="_blank" aria-label="View portfolio"><i class="fas fa-external-link-alt"></i></a>
+                            <p>project-link</p>
+                            <a href="https://github.com/santosh3811/portfolio" target="_blank" aria-label="View portfolio"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <img src="https://via.placeholder.com/300x200?text=Coming+Soon" alt="Coming Soon Project">
+                        <div class="layer">
+                            <h3>Project in Development</h3>
+                            <p>Exciting new project currently under development.</p>
+                            <a href="#" aria-label="Coming soon"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <div class="row contact-row">
+                    <div class="contact-left">
+                        <h2 class="sub-title">Contact Me</h2>
+                        <p><i class="fas fa-paper-plane"></i> karini.siddu2022@vitstudent.ac.in</p>
+                        <p><i class="fas fa-phone"></i> +91 8760349999</p>
+                        
+                        <div class="social-icons">
+                            <a href="https://facebook.com/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="https://twitter.com/" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/_santosh_2405" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/karini-santosh-332728270/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                        
+                        <a href="https://drive.google.com/file/d/1lVM1kyPaMyHdwXzpx4iwAu7oNJrVTxnm/view" download class="btn btn-secondary">Download Resume</a>
+                    </div>
+                    
+                    <div class="contact-right">
+                        <form id="contactForm" action="/submit-form" method="POST">
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <div id="form-message"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="copyright">
+        <div class="container">
+            <p>&copy; <span id="year"></span> Santosh Karini. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Functionality
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+        const sideMenu = document.getElementById('sidemenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        
+        menuBtn.addEventListener('click', () => {
+            sideMenu.classList.add('active');
+            menuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            sideMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        menuOverlay.addEventListener('click', () => {
+            sideMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('#sidemenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                sideMenu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Tab functionality
+        const tabLinks = document.querySelectorAll('.tab-links');
+        const tabContents = document.querySelectorAll('.tab-contents');
+        
+        tabLinks.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.getAttribute('data-tab');
+                
+                // Remove active class from all tabs and contents
+                tabLinks.forEach(t => t.classList.remove('active-link'));
+                tabContents.forEach(c => c.classList.remove('active-tab'));
+                
+                // Add active class to clicked tab and corresponding content
+                tab.classList.add('active-link');
+                document.getElementById(tabId).classList.add('active-tab');
+            });
+        });
+        
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('form-message');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Simulate form submission
+            formMessage.textContent = 'Thank you for your message! I will get back to you soon.';
+            formMessage.classList.add('success');
+            formMessage.style.display = 'block';
+            
+            // Reset form
+            contactForm.reset();
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 5000);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
 </html>
